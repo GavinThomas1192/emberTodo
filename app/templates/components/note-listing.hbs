@@ -1,0 +1,14 @@
+{{yield}}
+<article class="note">
+    <h3>{{note.title}}</h3>
+    <div>
+        <h4>By: {{note.owner}}</h4>
+        <h4>Where: {{note.location}}</h4>
+        <span>Description:</span>
+        <p>{{note.description}}</p>
+        <a {{action 'toggleImageSize'}} class="image {{if isWide " wide "}}">
+            <img src="{{note.image}} " alt=" ">
+            <small>View Larger</small>
+        </a>
+    </div>
+</article>
