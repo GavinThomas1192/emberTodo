@@ -46,7 +46,7 @@ export default function () {
           noteType: 'Hiking',
           owner: 'Gavin Thomas',
           date: new Date(),
-          image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
+          image: 'http://www.publicdomainpictures.net/pictures/110000/velka/rustic-hiking-trail.jpg',
           description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
         },
         {
@@ -56,7 +56,7 @@ export default function () {
           noteType: 'Sleeping',
           owner: 'Gavin Thomas',
           date: new Date(),
-          image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
+          image: 'https://c.pxhere.com/photos/53/57/clay_valley_black_forest_hut_cottages_meadow_green_nature_place_of_power-1338141.jpg!d',
           description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
         }
       ]
