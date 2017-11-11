@@ -27,11 +27,12 @@ export default function () {
 
   this.get('/notes', function () {
     return {
-      data: [
+      note: [
         {
           id: '1111',
           title: 'Downtown Charm',
           location: 'Charm USA',
+          noteType: 'Fishing',
           owner: 'Gavin Thomas',
           date: new Date(),
           image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
@@ -42,6 +43,7 @@ export default function () {
           id: '1112',
           title: 'Downtown Tokyo',
           location: 'Tokya USA',
+          noteType: 'Hiking',
           owner: 'Gavin Thomas',
           date: new Date(),
           image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
@@ -51,6 +53,7 @@ export default function () {
           id: '1113',
           title: 'Downtown China',
           location: 'China USA',
+          noteType: 'Sleeping',
           owner: 'Gavin Thomas',
           date: new Date(),
           image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',

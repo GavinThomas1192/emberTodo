@@ -1,17 +1,29 @@
 {{yield}}
-<article class="note">
+<article class="listing">
     <h3>{{note.title}}</h3>
     <div>
-        <h4>By: {{note.owner}}</h4>
-        <h4>Where: {{note.location}}</h4>
-        <div class="detail type">
-        <span>Type: </span>{{note-item-type note.noteType}}
+        <div class='detail owner'>
+            <span>By:</span> {{note.owner}}
         </div>
-        <span>Description:</span>
-        <p>{{note.description}}</p>
+
+        <div class="detail location">
+            <span>Where:</span> {{note.location}}
+        </div>
+
+        <div class="detail type">
+            <span>Type: </span>{{note-item-type note.noteType}} - {{note.noteType}}
+        </div>
+
+        <div>
+            <h3>Description:</h3>
+            <p>{{note.description}}</p>
+        </div>
+
         <a {{action 'toggleImageSize'}} class="image {{if isWide " wide "}}">
+
             <img src="{{note.image}} " alt=" ">
             <small>View Larger</small>
         </a>
+
     </div>
 </article>

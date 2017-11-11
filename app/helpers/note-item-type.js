@@ -1,7 +1,16 @@
 import { helper } from '@ember/component/helper';
 
-export function noteItemType(params/*, hash*/) {
-  return params;
+const outdoorNoteTypes = [
+  'Hiking',
+  'Fishing',
+  'Camping'
+];
+
+export function noteItemType([noteType]) {
+  if (outdoorNoteTypes.includes(noteType)) {
+    return 'Outdoor';
+  }
+  return 'Indoor'
 }
 
 export default helper(noteItemType);
