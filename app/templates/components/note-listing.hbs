@@ -4,6 +4,9 @@
     <div>
         <h4>By: {{note.owner}}</h4>
         <h4>Where: {{note.location}}</h4>
+        <div class="detail type">
+        <span>Type: </span>{{note-item-type note.noteType}}
+        </div>
         <span>Description:</span>
         <p>{{note.description}}</p>
         <a {{action 'toggleImageSize'}} class="image {{if isWide " wide "}}">
