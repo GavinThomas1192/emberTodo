@@ -25,41 +25,72 @@ export default function () {
   */
   this.namespace = '/api';
 
-  this.get('/notes', function () {
-    return {
-      note: [
-        {
-          id: '1111',
-          title: 'Downtown Charm',
-          location: 'Charm USA',
-          noteType: 'Fishing',
-          owner: 'Gavin Thomas',
-          date: new Date(),
-          image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
-          description: 'This is my very first hard coded notes, one day this will be about mushrooms.'
 
-        },
-        {
-          id: '1112',
-          title: 'Downtown Tokyo',
-          location: 'Tokya USA',
-          noteType: 'Hiking',
-          owner: 'Gavin Thomas',
-          date: new Date(),
-          image: 'http://www.publicdomainpictures.net/pictures/110000/velka/rustic-hiking-trail.jpg',
-          description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
-        },
-        {
-          id: '1113',
-          title: 'Downtown China',
-          location: 'China USA',
-          noteType: 'Sleeping',
-          owner: 'Gavin Thomas',
-          date: new Date(),
-          image: 'https://c.pxhere.com/photos/53/57/clay_valley_black_forest_hut_cottages_meadow_green_nature_place_of_power-1338141.jpg!d',
-          description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
-        }
-      ]
+  let notes = [
+    {
+      type: 'notes',
+      id: '1111',
+      attributes: {
+        title: 'Downtown Charm',
+        location: 'Charm USA',
+        noteType: 'Fishing',
+        owner: 'Gavin Thomas',
+        date: new Date(),
+        image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
+        description: 'This is my very first hard coded notes, one day this will be about mushrooms.'
+      }
+
+    },
+    {
+      type: 'notes',
+      id: '1112',
+      attributes: {
+        title: 'Downtown Tokyo',
+        location: 'Tokya USA',
+        noteType: 'Hiking',
+        owner: 'Gavin Thomas',
+        date: new Date(),
+        image: 'http://www.publicdomainpictures.net/pictures/110000/velka/rustic-hiking-trail.jpg',
+        description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
+      }
+    },
+    {
+      type: 'notes',
+      id: '1113',
+      attributes: {
+        title: 'Downtown China',
+        location: 'China USA',
+        noteType: 'Sleeping',
+        owner: 'Gavin Thomas',
+        date: new Date(),
+        image: 'https://c.pxhere.com/photos/53/57/clay_valley_black_forest_hut_cottages_meadow_green_nature_place_of_power-1338141.jpg!d',
+        description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
+      }
+    },
+    {
+      type: 'notes',
+      id: '1114',
+      attributes: {
+        title: 'Downtown China',
+        location: 'China USA',
+        noteType: 'Sleeping',
+        owner: 'Nichole Doyle',
+        date: new Date(),
+        image: 'https://c.pxhere.com/photos/53/57/clay_valley_black_forest_hut_cottages_meadow_green_nature_place_of_power-1338141.jpg!d',
+        description: 'This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.This is my very first hard coded notes, one day this will be about mushrooms.'
+      }
+    }
+  ]
+
+  this.get('/notes', function (db, request) {
+    if (request.queryParams.owner !== undefined) {
+      let filteredNotes = notes.filter(function (i) {
+        return i.attributes.owner.toLocaleLowerCase().indexOf(request.queryParams.owner.toLocaleLowerCase()) !== -1;
+      })
+      return { data: filteredNotes };
+    } else {
+      return { data: notes };
     }
   })
 }
+

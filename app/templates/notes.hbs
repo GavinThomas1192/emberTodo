@@ -6,6 +6,12 @@
     <h1>UPDATED AFTER FIREBASE DEPLOY! HOOOZAH</h1>
 
     <h3>Or read your previous notes</h3>
-    {{#each model as |noteItem|}} {{note-listing note=noteItem}} {{/each}}
+    {{#list-filter filter=(action 'filterByOwner') as |notes|}}
+    <ul class="results">
+        {{#each notes as |noteItem|}}
+        <li>{{note-listing note=noteItem}}</li>
+        {{/each}}
+    </ul>
+    {{/list-filter}}
 
 </div>
